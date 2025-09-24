@@ -48,12 +48,12 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.arch }}
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
           type=ref,event=branch
           type=ref,event=pr
-          type=raw,value=2025.09.0-custom-develop
-          type=raw,value=latest
+          type=raw,value=2025.09.0-custom-develop-${{ matrix.arch }}
+          type=raw,value=latest-${{ matrix.arch }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5

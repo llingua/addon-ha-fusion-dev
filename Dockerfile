@@ -1,5 +1,5 @@
 # ha base image
-ARG BUILD_FROM
+ARG BUILD_FROM=alpine:3.18
 
 # first stage, can't use alpine for building armv7
 FROM node:22 AS builder
