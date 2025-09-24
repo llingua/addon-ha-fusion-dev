@@ -1,0 +1,46 @@
+# required configuration options
+name: HA Fusion Custom Dev
+version: 2025.09.0-custom-develop
+slug: ha_fusion_custom_dev
+description: Dashboard personalizzato versione development con Universal Bar e features sperimentali
+arch:
+  - aarch64
+  - amd64
+  - armv7
+
+# disable the docker default system init
+init: false
+
+# configuration schema
+options:
+  log_level:
+    name: Log Level
+    description: Set the logging level for the add-on
+schema:
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+
+# homepage of the add-on
+url: https://github.com/llingua/ha-fusion-custom
+
+# icon for the menu panel integration
+panel_icon: mdi:test-tube
+
+# allow non-administration users
+panel_admin: false
+
+# security profile
+apparmor: true
+
+# ingress feature for the add-on
+ingress: true
+ingress_stream: true
+
+# enable api to get host port
+hassio_api: true
+
+# port to expose, null defaults to disabled
+ports:
+  8099/tcp: null
+
+# docker hub
+image: llingua/addon-ha-fusion-dev-{arch}
