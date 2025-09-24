@@ -39,8 +39,9 @@ ingress_stream: true
 hassio_api: true
 
 # port to expose, null defaults to disabled
+# Using unique port 8091 to avoid conflicts with other ha-fusion installations
 ports:
-  8099/tcp: null
+  8091/tcp: null
 
 # docker hub
 image: llingua/addon-ha-fusion-dev-{arch}

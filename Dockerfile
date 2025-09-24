@@ -39,8 +39,9 @@ RUN apk add --no-cache nodejs-current && \
   chmod a+x /run.sh
 
 # set environment
-ENV PORT=8099 \
+ENV PORT=8091 \
   NODE_ENV=production \
-  ADDON=true
+  ADDON=true \
+  DATA_PREFIX=ha-fusion-custom-dev
 
 CMD [ "/run.sh" ]

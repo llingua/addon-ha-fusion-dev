@@ -14,10 +14,22 @@ Questa è una versione **development** che include le ultime funzionalità e pot
 
 - 🎯 **Universal Bar Component**: Componente Bar disponibile sia nella sidebar che nel main dashboard
 - 📐 **Multiple Size**: Compatta, Media, Grande
-- 🖱️ **Click to Edit**: Modifica diretta dal dashboard principale  
+- 🖱️ **Click to Edit**: Modifica diretta dal dashboard principale
 - ⚙️ **Enhanced Configuration**: Modal migliorata con selezione dimensioni
 - 🔬 **Latest Features**: Tutte le features più recenti dal branch develop
 - 🛠️ **Experimental**: Potrebbe includere funzionalità sperimentali
+- ✅ **Conflict-Free**: Può essere installato insieme ad altre versioni di ha-fusion
+
+## 🔧 Anti-Conflitto (Dev Version)
+
+Questo add-on development è progettato per evitare conflitti:
+
+- **🌐 Porta Unica**: Usa la porta 8091 (diversa da standard 8099 e stable 8090)
+- **📁 Slug Unico**: `ha_fusion_custom_dev` (unico per la versione development)
+- **🗂️ Dati Separati**: Directory prefissata con `ha-fusion-custom-dev`
+- **🏷️ Nome Distintivo**: "HA Fusion Custom Dev" con icona test-tube
+
+> ✅ **Multi-Installazione**: Puoi avere stable, dev e versioni originali installate simultaneamente
 
 ## Basato su
 
@@ -35,7 +47,7 @@ Il componente Bar, precedentemente disponibile solo nella sidebar, ora può esse
 ### Come usare la nuova funzionalità Bar
 
 1. Entra in modalità Edit
-2. Clicca su "Add Object" 
+2. Clicca su "Add Object"
 3. Seleziona "Bar" dalla lista
 4. Configura entità, nome e dimensione
 5. Clicca "Done"
@@ -44,12 +56,12 @@ Per modificare una barra esistente, entra in modalità Edit e clicca sulla barra
 
 ## 🔄 Differenze con la versione stabile
 
-| **Feature** | **Stable** | **Dev** |
-|-------------|------------|---------|
-| **Universal Bar** | ✅ | ✅ |
-| **Stabilità** | ✅ Testata | ⚠️ Sperimentale |
-| **Nuove Features** | ❌ | ✅ Latest |
-| **Bug Fix** | ✅ Solo critici | ✅ Tutti |
+| **Feature**        | **Stable**      | **Dev**         |
+| ------------------ | --------------- | --------------- |
+| **Universal Bar**  | ✅              | ✅              |
+| **Stabilità**      | ✅ Testata      | ⚠️ Sperimentale |
+| **Nuove Features** | ❌              | ✅ Latest       |
+| **Bug Fix**        | ✅ Solo critici | ✅ Tutti        |
 | **Uso Produzione** | ✅ Raccomandato | ❌ Sconsigliato |
 
 [![Add Repository](https://img.shields.io/badge/Add%20Repository-orange?style=for-the-badge&logo=home-assistant&logoColor=white)](https://github.com/llingua/addon-ha-fusion-dev)
