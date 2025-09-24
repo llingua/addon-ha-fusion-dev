@@ -15,7 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [aarch64, amd64, armv7]
+        include:
+          - arch: aarch64
+            base_image: alpine:3.18
+            platform: linux/arm64
+          - arch: amd64
+            base_image: alpine:3.18
+            platform: linux/amd64
+          - arch: armv7
+            base_image: alpine:3.18
+            platform: linux/arm/v7
     
     steps:
     - name: Checkout repository
@@ -50,11 +59,11 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        platforms: linux/${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch == 'armv7' && 'arm/v7' || 'amd64' }}
+        platforms: ${{ matrix.platform }}
         push: ${{ github.event_name != 'pull_request' }}
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
         build-args: |
-          BUILD_FROM=ghcr.io/home-assistant/${{ matrix.arch }}-base:latest
+          BUILD_FROM=${{ matrix.base_image }}

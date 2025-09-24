@@ -33,10 +33,19 @@ COPY --from=builder /app/package.json .
 # copy run
 COPY run.sh /
 
-# install node, symlink persistent data and chmod run
-RUN apk add --no-cache nodejs-current && \
+# install node and bashio, symlink persistent data and chmod run
+RUN apk add --no-cache nodejs-current bash jq curl && \
   ln -s /rootfs/data /data && \
   chmod a+x /run.sh
+
+# install bashio for home assistant add-on functionality
+RUN curl -J -L -o /tmp/bashio.tar.gz \
+  "https://github.com/hassio-addons/bashio/archive/v0.16.2.tar.gz" && \
+  mkdir /tmp/bashio && \
+  tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio && \
+  mv /tmp/bashio/lib /usr/lib/bashio && \
+  ln -s /usr/lib/bashio/bashio /usr/bin/bashio && \
+  rm -rf /tmp/bashio.tar.gz /tmp/bashio
 
 # set environment
 ENV PORT=8091 \
