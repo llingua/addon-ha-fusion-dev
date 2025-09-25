@@ -66,3 +66,4 @@ Per modificare una barra esistente, entra in modalità Edit e clicca sulla barra
 
 [![Add Repository](https://img.shields.io/badge/Add%20Repository-orange?style=for-the-badge&logo=home-assistant&logoColor=white)](https://github.com/llingua/addon-ha-fusion-dev)
 # Docker build trigger
+# Trigger build for new image format
