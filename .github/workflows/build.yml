@@ -50,7 +50,9 @@ jobs:
         context: .
         platforms: ${{ matrix.platform }}
         push: ${{ github.event_name != 'pull_request' }}
-        tags: lorenzoy3k/addon-ha-fusion-dev-${{ matrix.arch }}:latest
+        tags: |
+          lorenzoy3k/addon-ha-fusion-dev-${{ matrix.arch }}:latest
+          lorenzoy3k/addon-ha-fusion-dev-${{ matrix.arch }}:2025.09.0-custom-develop
         cache-from: type=gha
         cache-to: type=gha,mode=max
         build-args: |
