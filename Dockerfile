@@ -30,13 +30,15 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/server.js .
 COPY --from=builder /app/package.json .
 
-# copy run
-COPY run.sh /
-
-# install node and bashio, symlink persistent data and chmod run
+# install node and bashio, symlink persistent data first
 RUN apk add --no-cache nodejs-current bash jq curl && \
-  ln -s /rootfs/data /data && \
-  chmod +x /run.sh
+  ln -s /rootfs/data /data
+
+# copy run script and set permissions
+COPY run.sh /run.sh
+RUN chmod +x /run.sh && \
+  ls -la /run.sh && \
+  echo "run.sh copied and permissions set"
 
 # install bashio for home assistant add-on functionality
 RUN curl -J -L -o /tmp/bashio.tar.gz \
