@@ -50,7 +50,7 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=raw,value=2025.09.0-custom-develop-${{ matrix.arch }}
+          type=raw,value=2025.09.0.custom.develop-${{ matrix.arch }}
           type=raw,value=latest-${{ matrix.arch }}
 
     - name: Build and push Docker image
