@@ -35,6 +35,7 @@ apparmor: true
 # ingress feature for the add-on
 ingress: true
 ingress_stream: true
+ingress_port: 8091
 
 # enable api to get host port
 hassio_api: true
