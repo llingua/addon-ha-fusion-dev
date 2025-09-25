@@ -38,6 +38,7 @@ RUN apk add --no-cache nodejs-current bash jq curl && \
 COPY run.sh /run.sh
 RUN chmod +x /run.sh && \
   ls -la /run.sh && \
+  cat /run.sh && \
   echo "run.sh copied and permissions set"
 
 # install bashio for home assistant add-on functionality
@@ -55,4 +56,4 @@ ENV PORT=8091 \
   ADDON=true \
   DATA_PREFIX=ha-fusion-custom-dev
 
-CMD [ "/run.sh" ]
+CMD [ "/usr/bin/bashio", "/run.sh" ]
