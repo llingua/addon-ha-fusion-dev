@@ -36,7 +36,7 @@ COPY run.sh /
 # install node and bashio, symlink persistent data and chmod run
 RUN apk add --no-cache nodejs-current bash jq curl && \
   ln -s /rootfs/data /data && \
-  chmod a+x /run.sh
+  chmod +x /run.sh
 
 # install bashio for home assistant add-on functionality
 RUN curl -J -L -o /tmp/bashio.tar.gz \
