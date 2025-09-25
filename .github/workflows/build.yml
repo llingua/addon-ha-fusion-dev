@@ -44,25 +44,13 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Extract metadata
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        tags: |
-          type=raw,value=2025.09.0.custom.develop-${{ matrix.arch }}
-          type=raw,value=latest-${{ matrix.arch }}
-
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         platforms: ${{ matrix.platform }}
         push: ${{ github.event_name != 'pull_request' }}
-        tags: |
-          ${{ steps.meta.outputs.tags }}
-          ${{ env.REGISTRY }}/lorenzoy3k/addon-ha-fusion-dev-${{ matrix.arch }}:latest
-        labels: ${{ steps.meta.outputs.labels }}
+        tags: lorenzoy3k/addon-ha-fusion-dev-${{ matrix.arch }}:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
         build-args: |
